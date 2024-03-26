@@ -12,10 +12,10 @@ int main() {
         cout << "1. Insert at Beginning\n";
         cout << "2. Insert at End\n";
         cout << "3. Insert at Position\n";
-        cout << "4. Delete at Beginning\n";
-        cout << "5. Delete at End\n";
-        cout << "6. Delete at Position\n";
-        cout << "7. Linear Search\n";
+        cout << "4. Delete from Beginning\n";
+        cout << "5. Delete from End\n";
+        cout << "6. Delete from Position\n";
+        cout << "7. Find index of an element\n";
         cout << "8. Display Array\n";
         cout << "9. Exit\n";
         cout << "Enter your choice: ";
