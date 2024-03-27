@@ -40,7 +40,9 @@ int main() {
                 break;
             }
             case 5: {
-                stack.pop();
+                while (!stack.isEmpty()) {
+                    stack.pop();
+                }
                 break;
             }
             case 6: {
