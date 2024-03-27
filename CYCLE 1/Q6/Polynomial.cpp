@@ -1,4 +1,4 @@
-#include "polynomial.h"
+#include "Polynomial.h"
 
 Polynomial::Polynomial() : head(nullptr) {}
 

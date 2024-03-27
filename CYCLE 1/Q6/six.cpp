@@ -1,4 +1,4 @@
-#include "polynomial.cpp"
+#include "Polynomial.cpp"
 
 int main() {
     cout << "Enter details of first polynomial:" << endl;
