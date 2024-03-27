@@ -1,23 +1,23 @@
 #include "QueueLL.h"
 
-template <class T>
+template<class T>
 LinkedListQueue<T>::LinkedListQueue() {
     front = nullptr;
     rear = nullptr;
 }
 
-template <class T>
+template<class T>
 LinkedListQueue<T>::~LinkedListQueue() {
     while (front != nullptr) {
-        Node<T>* temp = front;
+        Node<T> *temp = front;
         front = front->next;
         delete temp;
     }
 }
 
-template <class T>
+template<class T>
 void LinkedListQueue<T>::enqueue(T value) {
-    Node<T>* newNode = new Node<T>(value);
+    Node<T> *newNode = new Node<T>(value);
     if (rear == nullptr) {
         front = newNode;
         rear = newNode;
@@ -27,7 +27,7 @@ void LinkedListQueue<T>::enqueue(T value) {
     }
 }
 
-template <class T>
+template<class T>
 T LinkedListQueue<T>::dequeue() {
     if (isEmpty()) {
         cerr << "Que underflow" << endl;
@@ -35,7 +35,7 @@ T LinkedListQueue<T>::dequeue() {
     }
 
     T value = front->data;
-    Node<T>* temp = front;
+    Node<T> *temp = front;
     front = front->next;
     if (front == nullptr) {
         rear = nullptr;
@@ -44,19 +44,19 @@ T LinkedListQueue<T>::dequeue() {
     return value;
 }
 
-template <class T>
+template<class T>
 bool LinkedListQueue<T>::isEmpty() {
     return front == nullptr;
 }
 
-template <class T>
+template<class T>
 void LinkedListQueue<T>::display() {
     if (isEmpty()) {
         cout << "Queue is empty." << endl;
         return;
     }
 
-    Node<T>* current = front;
+    Node<T> *current = front;
     cout << "Queue: ";
     while (current != nullptr) {
         cout << current->data << " ";

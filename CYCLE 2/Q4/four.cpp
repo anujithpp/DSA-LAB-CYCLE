@@ -41,7 +41,7 @@ int main() {
                 }
                 break;
             case 4:
-                cout<<"Queue implemented using linked list have no size (memory is dynamically allocated) \n";
+                cout << "Queue implemented using linked list have no size (memory is dynamically allocated) \n";
                 break;
             case 5: {
                 while (!l1.isEmpty()) {
@@ -51,7 +51,7 @@ int main() {
                 break;
             }
             case 6: {
-                cout<<"Not Applicable--Queue implemented with Linked list doesn't have max size\n";
+                cout << "Not Applicable--Queue implemented with Linked list doesn't have max size\n";
                 break;
             }
             case 7: {
@@ -59,7 +59,7 @@ int main() {
                 l1.display();
                 break;
             }
-            case 8:{
+            case 8: {
                 cout << "Exiting program.\n";
                 break;
             }
