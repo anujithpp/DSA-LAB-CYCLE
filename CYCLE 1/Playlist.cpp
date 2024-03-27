@@ -1,4 +1,3 @@
-#include <string>
 #include <iostream>
 
 using namespace std;
@@ -25,17 +24,19 @@ class Playlist {
 private:
     Node *head;
 
-    Node *merge(Node *left, Node *right) {
+    Node *merge(Node *left, Node *right, string sortBy) {
         if (!left) return right;
         if (!right) return left;
 
         Node *result = nullptr;
-        if (left->data.title <= right->data.title) {
+        if ((sortBy == "title" && left->data.title <= right->data.title) ||
+            (sortBy == "artist" && left->data.artist <= right->data.artist) ||
+            (sortBy == "duration" && left->data.duration <= right->data.duration)) {
             result = left;
-            result->next = merge(left->next, right);
+            result->next = merge(left->next, right, sortBy);
         } else {
             result = right;
-            result->next = merge(left, right->next);
+            result->next = merge(left, right->next, sortBy);
         }
         return result;
     }
@@ -57,7 +58,7 @@ private:
         slow->next = nullptr;
     }
 
-    void mergeSort(Node **node) {
+    void mergeSort(Node **node, string sortBy) {
         Node *head = *node;
         Node *left;
         Node *right;
@@ -68,10 +69,10 @@ private:
 
         split(head, &left, &right);
 
-        mergeSort(&left);
-        mergeSort(&right);
+        mergeSort(&left, sortBy);
+        mergeSort(&right, sortBy);
 
-        *node = merge(left, right);
+        *node = merge(left, right, sortBy);
     }
 
 public:
@@ -90,8 +91,8 @@ public:
         }
     }
 
-    void sort() {
-        mergeSort(&head);
+    void sort(string sortBy) {
+        mergeSort(&head, sortBy);
     }
 
     void display() {

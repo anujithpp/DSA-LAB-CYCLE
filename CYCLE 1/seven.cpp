@@ -13,9 +13,16 @@ int main() {
     cout << "Unsorted Playlist:" << std::endl;
     playlist.display();
 
-    playlist.sort();
+    cout << "\nSorting Playlist by title:" << std::endl;
+    playlist.sort("title");
+    playlist.display();
 
-    cout << "\nSorted Playlist:" << std::endl;
+    cout << "\nSorting Playlist by artist:" << std::endl;
+    playlist.sort("artist");
+    playlist.display();
+
+    cout << "\nSorting Playlist by duration:" << std::endl;
+    playlist.sort("duration");
     playlist.display();
 
     return 0;
