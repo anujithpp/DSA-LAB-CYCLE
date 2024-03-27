@@ -11,15 +11,15 @@ private:
 public:
     Node(T);
 
-    void set_pLink(Node *);
+    void set_plink(Node *);
 
-    void set_nLink(Node *);
+    void set_nlink(Node *);
 
     T get_data();
 
-    Node *get_pLink();
+    Node *get_plink();
 
-    Node *get_nLink();
+    Node *get_nlink();
 };
 
 template<class T>
@@ -33,17 +33,17 @@ public:
 
     int get_count();
 
-    void insert_at_beginning();
+    void insert_at_beginning(T);
 
-    void insert_at_end();
+    void insert_at_end(T);
 
-    void insert_at_position();
+    void insert_at_position(int, T);
 
     void delete_from_front();
 
     void delete_from_end();
 
-    void delete_from_position();
+    void delete_from_position(int);
 
     void display();
 };

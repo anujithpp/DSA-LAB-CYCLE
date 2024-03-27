@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    LinkedList<int> list{}; // Creating a linked list of integers
+    LinkedList<int> list{};
 
     int choice, key, position;
 
