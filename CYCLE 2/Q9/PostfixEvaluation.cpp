@@ -1,37 +1,29 @@
 #include "PostfixEvaluation.h"
-#include <stack>
-#include <cctype>
 
-int PostfixEvaluation::evaluatePostfix(const std::string &postfix) {
-    std::stack<int> operandStack;
+template<typename T>
+void Stack<T>::push(T element) {
+    data.push(element);
+}
 
-    for (char c: postfix) {
-        if (isdigit(c)) {
-            operandStack.push(c - '0');
-        } else if (c == ' ') {
-            continue;
-        } else {
-            int operand2 = operandStack.top();
-            operandStack.pop();
-            int operand1 = operandStack.top();
-            operandStack.pop();
-
-            switch (c) {
-                case '+':
-                    operandStack.push(operand1 + operand2);
-                    break;
-                case '-':
-                    operandStack.push(operand1 - operand2);
-                    break;
-                case '*':
-                    operandStack.push(operand1 * operand2);
-                    break;
-                case '/':
-                    operandStack.push(operand1 / operand2);
-                    break;
-            }
-        }
+template<typename T>
+T Stack<T>::pop() {
+    if (isEmpty()) {
+        throw StackException("Stack is empty");
     }
+    T topElement = data.top();
+    data.pop();
+    return topElement;
+}
 
-    return operandStack.top();
+template<typename T>
+T Stack<T>::peek() {
+    if (isEmpty()) {
+        throw StackException("Stack is empty");
+    }
+    return data.top();
+}
+
+template<typename T>
+bool Stack<T>::isEmpty() {
+    return data.empty();
 }
