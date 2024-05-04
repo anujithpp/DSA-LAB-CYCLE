@@ -90,8 +90,7 @@ int Array<T>::binarySearch(T key) {
 
         if (A[mid] < key) {
             left = mid + 1;
-        }
-        else {
+        } else {
             right = mid - 1;
         }
     }
@@ -111,10 +110,10 @@ void Array<T>::quickSort(int LB, int UB) {
 }
 
 template<class T>
-void Array<T>::bubbleSort(){
-    int n = UB +1;
+void Array<T>::bubbleSort() {
+    int n = UB + 1;
 
-    for (int i = 0; i < n - 1; ++i){
+    for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
             if (A[j] > A[j + 1]) {
                 swap(A[j], A[j + 1]);
@@ -124,8 +123,8 @@ void Array<T>::bubbleSort(){
 }
 
 template<class T>
-void Array<T>::insertionSort(){
-    int n = UB+1;
+void Array<T>::insertionSort() {
+    int n = UB + 1;
     for (int i = 1; i < n; ++i) {
         T key = A[i];
         int j = i - 1;
@@ -182,12 +181,12 @@ int Array<T>::partition(int LB, int UB) {
 }
 
 template<class T>
-int Array<T>::size()  {
+int Array<T>::size() {
     return UB + 1;
 }                 //returns the size of array *( size-1 = upperbound)
 
 template<class T>
-void Array<T>::swap(T& a, T& b) {
+void Array<T>::swap(T &a, T &b) {
     T temp = a;
     a = b;
     b = temp;
