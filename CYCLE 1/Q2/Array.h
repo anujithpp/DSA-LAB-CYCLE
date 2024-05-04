@@ -58,14 +58,4 @@ public:
 
     template<class U>
     friend ostream &operator<<(ostream &, Array<U>);
-
-
-    //Advance Array Operations
-    void leftRotate(int lRotate);
-
-    void rightRotate(int rRotate);
-
-    void frequencyCount();
-
-    void distinctElements();
 };

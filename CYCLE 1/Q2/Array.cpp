@@ -60,7 +60,6 @@ void Array<T>::deleteAtPosition(int index) {
     }
 }
 
-
 //Searching algorithms
 template<class T>
 T Array<T>::linearSearch(T key) {
@@ -90,15 +89,13 @@ int Array<T>::binarySearch(T key) {
 
         if (A[mid] < key) {
             left = mid + 1;
-        }
-        else {
+        } else {
             right = mid - 1;
         }
     }
 
     return -1;
 }
-
 
 //Sorting algorithms
 template<class T>
@@ -111,10 +108,10 @@ void Array<T>::quickSort(int LB, int UB) {
 }
 
 template<class T>
-void Array<T>::bubbleSort(){
-    int n = UB +1;
+void Array<T>::bubbleSort() {
+    int n = UB + 1;
 
-    for (int i = 0; i < n - 1; ++i){
+    for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
             if (A[j] > A[j + 1]) {
                 swap(A[j], A[j + 1]);
@@ -124,8 +121,8 @@ void Array<T>::bubbleSort(){
 }
 
 template<class T>
-void Array<T>::insertionSort(){
-    int n = UB+1;
+void Array<T>::insertionSort() {
+    int n = UB + 1;
     for (int i = 1; i < n; ++i) {
         T key = A[i];
         int j = i - 1;
@@ -165,7 +162,6 @@ void Array<T>::selectionSort() {
     }
 }
 
-
 //additional methods used inside other methods
 template<class T>
 int Array<T>::partition(int LB, int UB) {
@@ -182,12 +178,12 @@ int Array<T>::partition(int LB, int UB) {
 }
 
 template<class T>
-int Array<T>::size()  {
+int Array<T>::size() {
     return UB + 1;
 }                 //returns the size of array *( size-1 = upperbound)
 
 template<class T>
-void Array<T>::swap(T& a, T& b) {
+void Array<T>::swap(T &a, T &b) {
     T temp = a;
     a = b;
     b = temp;
@@ -200,7 +196,6 @@ void Array<T>::merge(int LB, int mid, int UB) {
 
     // Create temporary arrays
     T L[n1], R[n2];
-
 
     for (int i = 0; i < n1; i++)
         L[i] = A[LB + i];
@@ -222,13 +217,11 @@ void Array<T>::merge(int LB, int mid, int UB) {
         k++;
     }
 
-
     while (i < n1) {
         A[k] = L[i];
         i++;
         k++;
     }
-
 
     while (j < n2) {
         A[k] = R[j];
@@ -236,7 +229,6 @@ void Array<T>::merge(int LB, int mid, int UB) {
         k++;
     }
 }
-
 
 //Operator Overloading of output stream
 template<class U>
@@ -248,66 +240,6 @@ ostream &operator<<(ostream &os, Array<U> M) {
     }
     os << endl;
     return os;
-}
-
-//Advance Array Operations
-template<class T>
-void Array<T>::leftRotate(int lRotate) {
-    int n = UB - LB + 1;
-    lRotate = lRotate % n;
-    for (int i = 0; i < lRotate; ++i) {
-        T temp = A[LB];
-        for (int j = LB; j < UB; ++j) {
-            A[j] = A[j + 1];
-        }
-        A[UB] = temp;
-    }
-}
-
-template<class T>
-void Array<T>::rightRotate(int rRotate) {
-    int n = UB - LB + 1;
-
-    rRotate = rRotate % n;
-
-    for (int i = 0; i < rRotate; ++i) {
-        T temp = A[UB];
-        for (int j = UB; j > LB; --j) {
-            A[j] = A[j - 1];
-        }
-        A[LB] = temp;
-    }
-}
-
-template<class T>
-void Array<T>::frequencyCount() {
-    cout << "Element\tFrequency" << endl;
-    for (int i = LB; i <= UB; ++i) {
-        int count = 0;
-        for (int j = LB; j <= UB; ++j) {
-            if (A[i] == A[j]) {
-                count++;
-            }
-        }
-        cout << A[i] << "\t" << count << endl;
-    }
-}
-
-template<class T>
-void Array<T>::distinctElements() {
-    cout << "Distinct Elements:" << endl;
-
-    for (int i = LB; i <= UB; ++i) {
-        int count = 0;
-        for (int j = LB; j <= UB; ++j) {
-            if (A[i] == A[j]) {
-                count++;
-            }
-        }
-        if (count == 1) {
-            cout << A[i] << ",";
-        }
-    }
 }
 
 
