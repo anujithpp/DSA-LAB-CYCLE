@@ -45,7 +45,7 @@ int main() {
                 else
                     cout << "Stack is not full." << endl;
                 break;
-            case 5:{
+            case 5: {
                 while (!stack.isEmpty()) {
                     stack.pop();
                 }

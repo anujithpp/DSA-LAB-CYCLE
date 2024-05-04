@@ -73,7 +73,7 @@ int main() {
                 queue.display();
                 break;
             }
-            case 8:{
+            case 8: {
                 cout << "Exiting program.\n";
                 break;
             }
