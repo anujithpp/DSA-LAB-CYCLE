@@ -51,4 +51,6 @@ public:
     void postOrder();
 
     void deleteNode(Node *node);
+
+    void insertRecursive(Node *current, int value);
 };

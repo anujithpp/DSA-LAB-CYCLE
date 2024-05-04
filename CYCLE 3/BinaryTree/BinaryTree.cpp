@@ -17,28 +17,29 @@ void BinaryTree::deleteNode(Node *node) {
     delete node;
 }
 
+void BinaryTree::insertRecursive(Node *current, int value) {
+    if (value < current->data) {
+        if (current->left == nullptr) {
+            current->left = new Node(value);
+        } else {
+            insertRecursive(current->left, value);
+        }
+    } else {
+        if (current->right == nullptr) {
+            current->right = new Node(value);
+        } else {
+            insertRecursive(current->right, value);
+        }
+    }
+}
+
 void BinaryTree::insert(int value) {
     if (root == nullptr) {
         root = new Node(value);
         return;
     }
 
-    Node *current = root;
-    while (true) {
-        if (value < current->data) {
-            if (current->left == nullptr) {
-                current->left = new Node(value);
-                break;
-            }
-            current = current->left;
-        } else {
-            if (current->right == nullptr) {
-                current->right = new Node(value);
-                break;
-            }
-            current = current->right;
-        }
-    }
+    insertRecursive(root, value);
 }
 
 void BinaryTree::inOrderTraversal(int index) {
