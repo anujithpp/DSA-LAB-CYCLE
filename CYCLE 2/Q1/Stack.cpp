@@ -46,7 +46,7 @@ bool Stack<T>::isEmpty() {
 
 template<class T>
 bool Stack<T>::isFull() {
-    return (top == size-1);
+    return (top == size - 1);
 }
 
 template<class T>
