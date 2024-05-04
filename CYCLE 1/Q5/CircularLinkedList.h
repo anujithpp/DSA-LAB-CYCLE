@@ -3,21 +3,17 @@
 using namespace std;
 
 template<typename T>
-struct Node {
-    T a;
-    Node<T> *p;
-    Node<T> *q;
-};
-
-template<typename T>
-class DoublyLinkedList {
+class CircularLinkedList {
 private:
-    Node<T> *head;
-    Node<T> *tail;
+    struct Node {
+        T a;
+        Node *q;
+    };
+    Node *head;
 public:
-    DoublyLinkedList();
+    CircularLinkedList();
 
-    ~DoublyLinkedList();
+    ~CircularLinkedList();
 
     void insertAtBeginning(T a);
 

@@ -7,7 +7,7 @@ int main() {
 
     int choice, key, position;
 
-    cout << "LINKED LIST" ;
+    cout << "LINKED LIST";
     do {
         cout << "\nMenu:\n";
         cout << "1. Insert at Beginning\n";
