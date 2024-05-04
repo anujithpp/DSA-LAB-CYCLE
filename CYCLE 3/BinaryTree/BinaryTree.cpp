@@ -1,100 +1,41 @@
 #include "BinaryTree.h"
 
-BinaryTree::BinaryTree() {
-    root = nullptr;
+BinaryTree::BinaryTree(int n) {
+    size = n;
+    back = n - 1;
+    tree = new int[n];
 }
 
-BinaryTree::~BinaryTree() {
-    deleteNode(root);
-}
+void BinaryTree::pushback(int x) { tree[back--] = x; }
 
-void BinaryTree::deleteNode(Node *node) {
-    if (node == nullptr) {
-        return;
-    }
-    deleteNode(node->left);
-    deleteNode(node->right);
-    delete node;
-}
+void BinaryTree::insert(int val) { pushback(val); }
 
-void BinaryTree::insertRecursive(Node *current, int value) {
-    if (value < current->data) {
-        if (current->left == nullptr) {
-            current->left = new Node(value);
-        } else {
-            insertRecursive(current->left, value);
-        }
-    } else {
-        if (current->right == nullptr) {
-            current->right = new Node(value);
-        } else {
-            insertRecursive(current->right, value);
-        }
+int BinaryTree::parentIndex(int index) { return (index - 1) / 2; }
+
+int BinaryTree::leftchildIndex(int index) { return 2 * index + 1; }
+
+int BinaryTree::rightchildIndex(int index) { return 2 * index + 2; }
+
+void BinaryTree::inorderTraversal(int index) {
+    if (index < size) {
+        inorderTraversal(leftchildIndex(index));
+        cout << tree[index] << " ";
+        inorderTraversal(rightchildIndex(index));
     }
 }
 
-void BinaryTree::insert(int value) {
-    if (root == nullptr) {
-        root = new Node(value);
-        return;
-    }
-
-    insertRecursive(root, value);
-}
-
-void BinaryTree::inOrderTraversal(int index) {
-    if (root == nullptr) {
-        return; // Empty tree
-    }
-
-    if (root->left != nullptr) {
-        inOrderTraversal(index + 1); // Traverse left subtree
-    }
-
-    std::cout << root->data << " ";
-
-    if (root->right != nullptr) {
-        inOrderTraversal(index + 1); // Traverse right subtree
+void BinaryTree::preorderTraversal(int index) {
+    if (index < size) {
+        cout << tree[index] << " ";
+        preorderTraversal(leftchildIndex(index));
+        preorderTraversal(rightchildIndex(index));
     }
 }
 
-void BinaryTree::inOrder() {
-    inOrderTraversal(1); // Start traversal from root
-    std::cout << std::endl;
-}
-
-void BinaryTree::preOrderTraversal(int index) {
-    if (root == nullptr) {
-        return;
+void BinaryTree::postorderTraversal(int index) {
+    if (index < size) {
+        postorderTraversal(leftchildIndex(index));
+        postorderTraversal(rightchildIndex(index));
+        cout << tree[index] << " ";
     }
-    std::cout << root->data << " ";
-    if (root->left != nullptr) {
-        preOrderTraversal(index + 1);
-    }
-    if (root->right != nullptr) {
-        preOrderTraversal(index + 1);
-    }
-}
-
-void BinaryTree::preOrder() {
-    preOrderTraversal(1);
-    std::cout << std::endl;
-}
-
-void BinaryTree::postOrderTraversal(int index) {
-    if (root == nullptr) {
-        return;
-    }
-    if (root->left != nullptr) {
-        postOrderTraversal(index + 1);
-    }
-    if (root->right != nullptr) {
-        postOrderTraversal(index + 1);
-    }
-    std::cout << root->data << " ";
-}
-
-void BinaryTree::postOrder() {
-    postOrderTraversal(1);
-    std::cout << std::endl;
 }

@@ -1,56 +1,28 @@
 #include <iostream>
 
-class Node {
-public:
-    Node *left;
-    Node *right;
-    int data;
-
-    Node(int value) {
-        data = value;
-    }
-
-    Node *getRight() const {
-        return right;
-    }
-
-    void setRight(Node *newRight) {
-        right = newRight;
-    }
-
-    Node *getLeft() const {
-        return left;
-    }
-
-    void setLeft(Node *newLeft) {
-        left = newLeft;
-    }
-};
+using namespace std;
 
 class BinaryTree {
 private:
-    Node *root;
-
-    void inOrderTraversal(int index);
-
-    void preOrderTraversal(int index);
-
-    void postOrderTraversal(int index);
-
+    int *tree;
+    int size;
+    int back;
 public:
-    BinaryTree();
+    BinaryTree(int);
 
-    ~BinaryTree();
+    void pushback(int);
 
-    void insert(int value);
+    void insert(int);
 
-    void inOrder();
+    int parentIndex(int);
 
-    void preOrder();
+    int rightchildIndex(int);
 
-    void postOrder();
+    int leftchildIndex(int);
 
-    void deleteNode(Node *node);
+    void inorderTraversal(int index);
 
-    void insertRecursive(Node *current, int value);
+    void preorderTraversal(int index);
+
+    void postorderTraversal(int index);
 };
