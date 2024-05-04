@@ -64,16 +64,16 @@ int main() {
                 cout << arr;
                 break;
             case 9:
-                cout<<"Enter how much to rotate left"<<endl;
+                cout << "Enter how much to rotate left" << endl;
                 int lValue;
-                cin>>lValue;
+                cin >> lValue;
                 arr.leftRotate(lValue);
                 cout << "Array left rotated." << endl;
                 break;
             case 10:
-                cout<<"Enter how much to rotate right"<<endl;
+                cout << "Enter how much to rotate right" << endl;
                 int rvalue;
-                cin>>rvalue;
+                cin >> rvalue;
                 arr.rightRotate(rvalue);
                 cout << "Array right rotated." << endl;
                 break;
@@ -82,7 +82,7 @@ int main() {
                 arr.frequencyCount();
                 break;
             case 12:
-                cout << "Distinct elements: "<< endl;
+                cout << "Distinct elements: " << endl;
                 arr.distinctElements();
                 break;
             case 0:
